@@ -38,6 +38,7 @@ RUN set -ex \
     npm \
  ' \
  && apt-get update && apt-get install -y --no-install-recommends $buildDeps \
+ && apt-get install vim -y \
  && curl -sL http://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz \
    | gunzip \
    | tar x -C /tmp/ \
@@ -60,14 +61,16 @@ RUN set -ex \
 ADD about.json $ZEPPELIN_NOTEBOOK_DIR/2BTRWA9EV/note.json
 
 # Google credentials JSON
-COPY gcp-credentials/ ${SPARK_HOME}/gcp-credentials/
+COPY gcp-credentials/ /usr/google-credentials/
 
 # Update conf file
 COPY conf/core-site.xml ${SPARK_HOME}/conf/core-site.xml
+
+
 #RUN rm ./spark/target/lib/guava-14.0.1.jar
 
 # Copy BigQuery Connector
-COPY lib/spark-bigquery-assembly-0.1.3.jar ${SPARK_HOME}/jars/spark-bigquery-assembly-0.1.3.jar
+COPY lib/spark-bigquery-assembly-0.1.4.jar ${SPARK_HOME}/jars/spark-bigquery-assembly-0.1.4.jar
 
 # Copy Jackson related jars
 COPY lib/jackson-core-2.8.6.jar ${SPARK_HOME}/jars/jackson-core-2.8.6.jar

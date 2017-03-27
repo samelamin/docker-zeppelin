@@ -1,0 +1,69 @@
+{
+  "paragraphs": [
+    {
+      "text": "import com.samelamin.spark.bigquery._\n// val jsonFile \u003d \"/databricks/Justeat-platform-events-c750aee2059a.json\"\nval BQ_PROJECT_ID \u003d \"justeat-datalake\"\nval GcsBucket \u003d \"je-etl-test\"\n// sqlContext.setGcpJsonKeyFile(jsonFile)\nsqlContext.setGSProjectId(BQ_PROJECT_ID)\nsqlContext.setBigQueryProjectId(BQ_PROJECT_ID)\nsqlContext.setBigQueryGcsBucket(GcsBucket)\nval df \u003d sqlContext.bigQuerySelect(\"SELECT commit, committer.date FROM `bigquery-public-data.github_repos.commits` LIMIT 10\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2017 8:08:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport com.samelamin.spark.bigquery._\n\nBQ_PROJECT_ID: String \u003d justeat-datalake\n\nGcsBucket: String \u003d je-etl-test\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncom.google.api.client.googleapis.json.GoogleJsonResponseException: 403 Forbidden\n{\n  \"code\" : 403,\n  \"errors\" : [ {\n    \"domain\" : \"global\",\n    \"message\" : \"Access Denied: Dataset justeat-datalake:spark_bigquery_staging_us: The user spark-948@samelamin-162713.iam.gserviceaccount.com does not have bigquery.datasets.get permission for dataset justeat-datalake:spark_bigquery_staging_us.\",\n    \"reason\" : \"accessDenied\"\n  } ],\n  \"message\" : \"Access Denied: Dataset justeat-datalake:spark_bigquery_staging_us: The user spark-948@samelamin-162713.iam.gserviceaccount.com does not have bigquery.datasets.get permission for dataset justeat-datalake:spark_bigquery_staging_us.\"\n}\n  at com.google.api.client.googleapis.json.GoogleJsonResponseException.from(GoogleJsonResponseException.java:145)\n  at com.google.api.client.googleapis.services.json.AbstractGoogleJsonClientRequest.newExceptionOnError(AbstractGoogleJsonClientRequest.java:113)\n  at com.google.api.client.googleapis.services.json.AbstractGoogleJsonClientRequest.newExceptionOnError(AbstractGoogleJsonClientRequest.java:40)\n  at com.google.api.client.googleapis.services.AbstractGoogleClientRequest$1.interceptResponse(AbstractGoogleClientRequest.java:321)\n  at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:1056)\n  at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.executeUnparsed(AbstractGoogleClientRequest.java:419)\n  at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.executeUnparsed(AbstractGoogleClientRequest.java:352)\n  at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.execute(AbstractGoogleClientRequest.java:469)\n  at com.samelamin.spark.bigquery.BigQueryClient.stagingDataset(BigQueryClient.scala:153)\n  at com.samelamin.spark.bigquery.BigQueryClient.com$samelamin$spark$bigquery$BigQueryClient$$temporaryTable(BigQueryClient.scala:179)\n  at com.samelamin.spark.bigquery.BigQueryClient$$anon$1.load(BigQueryClient.scala:131)\n  at com.samelamin.spark.bigquery.BigQueryClient$$anon$1.load(BigQueryClient.scala:126)\n  at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3599)\n  at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2379)\n  at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2342)\n  at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2257)\n  at com.google.common.cache.LocalCache.get(LocalCache.java:4000)\n  at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4004)\n  at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4874)\n  at com.samelamin.spark.bigquery.BigQueryClient.selectQuery(BigQueryClient.scala:118)\n  at com.samelamin.spark.bigquery.package$BigQuerySQLContext.bigQuerySelect(package.scala:93)\n  ... 48 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1490645297785_-321247850",
+      "id": "20170327-200817_2069028",
+      "dateCreated": "Mar 27, 2017 8:08:17 PM",
+      "dateStarted": "Mar 27, 2017 8:08:57 PM",
+      "dateFinished": "Mar 27, 2017 8:09:12 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1490645337568_259399537",
+      "id": "20170327-200857_735167642",
+      "dateCreated": "Mar 27, 2017 8:08:57 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "bigquery",
+  "id": "2CF4GFVZ5",
+  "angularObjects": {
+    "2CDMMJ82T:shared_process": [],
+    "2CBBQSHSU:shared_process": [],
+    "2CE3BGN3J:shared_process": [],
+    "2CE732PCB:shared_process": [],
+    "2CETTYMN3:shared_process": [],
+    "2CCPQPPMS:shared_process": [],
+    "2CD5YT9JJ:shared_process": [],
+    "2CE5ZZ76Y:shared_process": [],
+    "2CF6ATRCN:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

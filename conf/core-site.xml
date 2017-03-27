@@ -18,7 +18,7 @@
 <configuration>
  <property>
      <name>fs.gs.auth.service.account.json.keyfile</name>
-     <value>/usr/spark-2.1.0/gcp-credentials/google-creds.json</value>
+     <value>/usr/google-credentials/google-creds.json</value>
      <description>GCP JSON key file.</description>
   </property>
   <property>
