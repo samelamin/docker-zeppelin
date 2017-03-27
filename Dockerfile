@@ -61,7 +61,7 @@ RUN set -ex \
 ADD about.json $ZEPPELIN_NOTEBOOK_DIR/2BTRWA9EV/note.json
 
 # Google credentials JSON
-COPY gcp-credentials/ /usr/google-credentials/
+COPY google-credentials/ /usr/google-credentials/
 
 # Update conf file
 COPY conf/core-site.xml ${SPARK_HOME}/conf/core-site.xml
