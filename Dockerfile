@@ -66,9 +66,6 @@ COPY google-credentials/ /usr/google-credentials/
 # Update conf file
 COPY conf/core-site.xml ${SPARK_HOME}/conf/core-site.xml
 
-
-#RUN rm ./spark/target/lib/guava-14.0.1.jar
-
 # Copy BigQuery Connector
 COPY lib/spark-bigquery-assembly-0.1.4.jar ${SPARK_HOME}/jars/spark-bigquery-assembly-0.1.4.jar
 
@@ -85,7 +82,5 @@ COPY lib/hadoop-aws-2.7.1.jar ${SPARK_HOME}/jars/hadoop-aws-2.7.1.jar
 # Update Guava
 COPY lib/guava-18.0.jar ${SPARK_HOME}/jars/guava-18.0.jar
  
-# UPDATE PATH
-#RUN export PATH=$PATH:$SPARK_HOME/jars:$SPARK_HOME/bin
 WORKDIR $ZEPPELIN_HOME
 CMD ["bin/zeppelin.sh"]
