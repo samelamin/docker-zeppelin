@@ -1,4 +1,4 @@
-# zeppelin
+# Zeppelin
 
 A `debian:jessie` based Spark and [Zeppelin](http://zeppelin.apache.org) Docker container.
 
@@ -61,6 +61,8 @@ INSTALL
 docker build -t my_zeppelin .
 ```
 
-## license
+# License
 
-MIT
+Copyright 2016 samelamin.
+
+Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
